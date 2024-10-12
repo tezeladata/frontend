@@ -2,7 +2,7 @@ import mtskheta from '../assets/Mtskheta.png';
 
 const About = () => {
     return (
-        <section className="h-screen">
+        <section className="h-screen max-[800px]:h-for-small">
             <div className="w-full h-full flex items-center justify-center pt-10 max-[800px]:flex-col"> {/* container */}
                 <div className="w-1/2 flex items-center justify-center relative mx-auto h-auto overflow-hidden rounded-lg max-[800px]:hidden">
                     <img src={mtskheta} alt="Mtskheta image aerial" className="w-2/5 h-auto relative z-0 rounded-lg scale-110 transition-all duration-300 hover:scale-100 max-[1900px]:w-1/2"/>

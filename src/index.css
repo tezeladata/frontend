@@ -37,4 +37,7 @@
   .text-smallest {
     font-size: 8px;
   }
+  .h-for-small {
+    height: 800px;
+  }
 }
