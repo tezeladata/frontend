@@ -1,7 +1,7 @@
 import Footer from "./Pages/Footer.jsx";
 import Home from "./Pages/Home.jsx";
 import Info from "./Pages/Info.jsx";
-// import RegisterComponent from "./Components/RegisterComponent.jsx";
+import Register from "./Pages/Register.jsx";
 
 const App = () => {
     return (
@@ -16,7 +16,7 @@ const App = () => {
                 <Footer />
             </footer>
 
-            {/*<RegisterComponent />*/}
+            <Register />
         </body>
     )
 }
