@@ -21,7 +21,7 @@ const cardData = [
 
 const Cards = () => {
     return (
-        <section className="h-2/5 w-full flex flex-col items-center justify-center">
+        <section className="h-screen w-full flex flex-col items-center justify-center">
             <h2 className="text-7xl pb-20 pt-10 font-bold font-MonaSpace max-[1900px]:text-5xl max-[1000px]:text-3xl">About us</h2>
             <div className="grid grid-cols-4 gap-12 h-1/2 w-4/5 max-[1900px]:w-full max-[1900px]:pl-10 max-[1900px]:pr-10 max-[800px]:grid-cols-2 max-[800px]:h1/4">
                 {cardData.map((card, index) => (
