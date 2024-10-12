@@ -3,7 +3,7 @@ import About from "../Components/About.jsx";
 
 const Info = () => {
     return (
-        <section className="min-h-min bg-gray-300 max-[800px]:mb-40">
+        <section className="bg-gray-300">
             <Cards />
             <About />
         </section>
