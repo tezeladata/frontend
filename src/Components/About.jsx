@@ -2,13 +2,13 @@ import mtskheta from '../assets/Mtskheta.png';
 
 const About = () => {
     return (
-        <section className="min-h-min pt-20">
+        <section className="h-screen">
             <div className="w-full h-full flex items-center justify-center pt-10 max-[800px]:flex-col"> {/* container */}
                 <div className="w-1/2 flex items-center justify-center relative mx-auto h-auto overflow-hidden rounded-lg max-[800px]:hidden">
                     <img src={mtskheta} alt="Mtskheta image aerial" className="w-2/5 h-auto relative z-0 rounded-lg scale-110 transition-all duration-300 hover:scale-100 max-[1900px]:w-1/2"/>
                 </div>
 
-                <div className="w-1/2 h-full flex flex-col items-start justify-start pt-10 pb-6 max-[800px]:items-center">
+                <div className="w-1/2 h-full flex flex-col items-start justify-center pt-10 pb-6 max-[800px]:items-center">
                     <div className="relative h-max">
                         <div className="w-14 h-2 bg-black rounded-full absolute top-1/2 -left-10 max-[900px]:w-8 max-[900px]:h-1 max-[900px]:-left-6"></div>
                         <p className="text-3xl font-bold pt-4 pb-4 pl-8 pr-8 bg-green-800 border-4 border-black rounded-full max-w-sm mx-auto h-auto shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-400 max-[1900px]:text-xl max-[1100px]:text-sm max-[900px]:pt-2 max-[900px]:pb-2 max-[900px]:pl-4 max-[900px]:pr-4 max-[800px]:text-xs max-[800px]:pt-1 max-[800px]:pb-1 max-[800px]:pl-2 max-[800px]:pr-2">GOA <span className="text-white">Website</span></p>
