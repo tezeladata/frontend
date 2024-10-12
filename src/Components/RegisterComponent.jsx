@@ -1,4 +1,4 @@
-import useForm from "../Hooks/UseForm.jsx";
+import useForm from "../Hooks/useForm.jsx";
 import {useEffect} from "react";
 
 const RegisterComponent = () => {
