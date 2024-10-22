@@ -1,27 +1,12 @@
 import backgroundImg from '../assets/background.jpg';
+import React, { useState, useMemo } from 'react';
 import useForm from '../Hooks/useForm.jsx';
-import {useState} from "react";
 
 const LogInComponent = () => {
     const { info, handleChange } = useForm();
     const [granted, setGranted] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form submitted with data:", info);
-
-        // Check if cookies and this info are same
-        const registerCookies = getCookies();
-        console.log(registerCookies);
-        const isSame = registerCookies.username === info.username && registerCookies.password === info.password;
-        console.log(isSame);
-        setGranted(isSame);
-
-        // Clear the form fields
-        Object.keys(info).forEach(key => handleChange({ target: { name: key, value: "" } }));
-    };
-
-    const getCookies = () => {
+    const registerCookies = useMemo(() => {
         const cookieArray = document.cookie.split("; ");
         const cookieObj = {};
         cookieArray.forEach(cookie => {
@@ -29,7 +14,23 @@ const LogInComponent = () => {
             cookieObj[name] = value;
         });
         return cookieObj;
+    }, []);
+
+    const isSameUser = (cookies, userInfo) => {
+        return cookies.username === userInfo.username && cookies.password === userInfo.password;
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form submitted with data:", info);
+
+        const isSame = isSameUser(registerCookies, info);
+        console.log(isSame);
+        setGranted(isSame);
+
+        Object.keys(info).forEach(key => handleChange({ target: { name: key, value: "" } }));
+    };
+
 
     return (
         <section className="h-full" style={{ backgroundImage: `url(${backgroundImg})` }}>

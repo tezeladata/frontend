@@ -1,24 +1,9 @@
 import useForm from "../Hooks/useForm.jsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 const RegisterComponent = () => {
     const { info, handleChange } = useForm();
     const [cookies, setCookies] = useState({});
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form submitted with data: ", info);
-
-        // Set cookies
-        document.cookie = `username=${info.username}`;
-        document.cookie = `link=${info.link}`;
-        document.cookie = `email=${info.email}`;
-        document.cookie = `password=${info.password}`;
-
-        setCookies(getCookies());
-        console.log(document.cookie);
-        handleClear();
-    };
 
     const getCookies = () => {
         const cookieArray = document.cookie.split("; ");
@@ -30,7 +15,22 @@ const RegisterComponent = () => {
         return cookieObj;
     };
 
-    // Clear the form inputs
+    const memoizedCookies = useMemo(() => getCookies(), [document.cookie]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form submitted with data: ", info);
+
+        document.cookie = `username=${info.username}`;
+        document.cookie = `link=${info.link}`;
+        document.cookie = `email=${info.email}`;
+        document.cookie = `password=${info.password}`;
+
+        setCookies(memoizedCookies);
+        console.log(document.cookie);
+        handleClear();
+    };
+
     const handleClear = () => {
         handleChange({ target: { name: "username", value: "" } });
         handleChange({ target: { name: "link", value: "" } });
@@ -39,8 +39,9 @@ const RegisterComponent = () => {
     };
 
     useEffect(() => {
-        setCookies(getCookies());
-    }, []);
+        setCookies(memoizedCookies);
+    }, [memoizedCookies]);
+
 
     return (
         <section className="w-full h-screen flex items-center justify-center">
