@@ -1,23 +1,36 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from "./Pages/Footer.jsx";
 import Home from "./Pages/Home.jsx";
 import Info from "./Pages/Info.jsx";
 import Register from "./Pages/Register.jsx";
+import LogIn from "./Pages/LogIn.jsx";
 
 const App = () => {
     return (
-        <body className="h-screen scroll-smooth font-roboto bg-gray-300">
-            <Home />
+        <Router>
+            <div className="h-screen scroll-smooth font-roboto bg-gray-300">
+                <Routes>
 
-            <main className="bg-gray-300">
-                <Info />
-            </main>
+                    {/* Main page route */}
+                    <Route path="/" element={
+                        <>
+                            <Home />
+                            <main className="bg-gray-300">
+                                <Info />
+                            </main>
+                            <Footer />
+                        </>
+                    } />
 
-            <footer>
-                <Footer />
-            </footer>
+                    {/* Register page route */}
+                    <Route path="/register" element={<Register />} />
 
-            <Register />
-        </body>
+                    {/* LogIn page route */}
+                    <Route path="/login" element={<LogIn />} />
+                </Routes>
+            </div>
+        </Router>
     )
 }
+
 export default App;
